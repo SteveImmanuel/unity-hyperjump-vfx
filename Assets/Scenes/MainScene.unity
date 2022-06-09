@@ -387,6 +387,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &916786722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b2ce26fd37d8dbd4096f4d59351cf8a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 619400560}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &916786725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b2ce26fd37d8dbd4096f4d59351cf8a0,
@@ -404,7 +410,6 @@ GameObject:
   - component: {fileID: 1517226234}
   - component: {fileID: 1517226233}
   - component: {fileID: 1517226232}
-  - component: {fileID: 1517226235}
   m_Layer: 0
   m_Name: HyperjumpVFX
   m_TagString: Untagged
@@ -481,7 +486,7 @@ VisualEffect:
       - m_Value: 2.5
         m_Name: RingRadius
         m_Overridden: 1
-      - m_Value: 0.02
+      - m_Value: 0.03
         m_Name: StarScale
         m_Overridden: 1
       - m_Value: 5.5
@@ -677,16 +682,119 @@ Transform:
   m_Father: {fileID: 330585546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1517226235
+--- !u!1 &1936939234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936939237}
+  - component: {fileID: 1936939236}
+  - component: {fileID: 1936939235}
+  m_Layer: 0
+  m_Name: HyperjumpController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1936939235
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517226229}
+  m_GameObject: {fileID: 1936939234}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a08fadc51e619b14dacc8c46251f34f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  globalVolume: {fileID: 11400000, guid: 5e07176358206dd458847249b3535bd5, type: 2}
   hyperjump: {fileID: 1517226233}
+  tunnel: {fileID: 916786722}
+  transitionDuration: 4
+  transitionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.8594777
+      value: 0.18616305
+      inSlope: 0.34986877
+      outSlope: 0.34986877
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.21961108
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  brightestRadialScale: 0.5
+  normalRadialScale: 1.2
+  brightestBloom: 60
+  normalBloom: 1.5
+  activeDofStart: 800
+  normalDofStart: 1100
+--- !u!114 &1936939236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936939234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08fadc51e619b14dacc8c46251f34f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  globalVolume: {fileID: 0}
+  hyperjump: {fileID: 0}
+  tunnel: {fileID: 0}
+  transitionDuration: 0.8
+  transitionCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  brightestRadialScale: 0.5
+  normalRadialScale: 1.2
+  brightestBloom: 28
+  normalBloom: 1.5
+  activeDofStart: 800
+  normalDofStart: 1100
+--- !u!4 &1936939237
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936939234}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.3331833, y: -1.0195065, z: 13.604626}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

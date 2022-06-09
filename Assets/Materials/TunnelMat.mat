@@ -63,7 +63,7 @@ Material:
     - _TimeOffset: 4.87
     - _TwirlOffset: 6.32
     - _TwirlStrength: 13
-    - _WarpSpeed: 0.51
+    - _WarpSpeed: 1.5
     - _a: -1.84
     - _offset: -0.25
     - _tile: 0.98
