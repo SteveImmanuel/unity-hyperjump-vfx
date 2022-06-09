@@ -47,7 +47,6 @@ public class VFXController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !isPlaying)
         {
 
-            Invert(inTunnel);
             if (!inTunnel)
             {
                 isPlaying = true;
@@ -57,6 +56,7 @@ public class VFXController : MonoBehaviour
                         inTunnel = true;
                         isPlaying = false;
                         ResetVFX();
+                        Invert(true);
                     })); 
                 }));
             } 
