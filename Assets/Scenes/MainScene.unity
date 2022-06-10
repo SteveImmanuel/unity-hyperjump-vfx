@@ -496,8 +496,8 @@ MonoBehaviour:
       inWeight: 1
       outWeight: 0.3626392
     - serializedVersion: 3
-      time: 0.2799387
-      value: 0.34387517
+      time: 0.35974216
+      value: 0.68585515
       inSlope: 0.7815862
       outSlope: 0.7815862
       tangentMode: 0
@@ -507,8 +507,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.9112069
-      outSlope: 0.9112069
+      inSlope: 0.49065366
+      outSlope: 0.49065366
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -544,8 +544,8 @@ MonoBehaviour:
       inWeight: 0.1781401
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.45331892
-      value: 0.48497346
+      time: 0.7223009
+      value: 0.4661136
       inSlope: 1.2081121
       outSlope: 1.2081121
       tangentMode: 0
@@ -555,8 +555,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 0.942097
-      outSlope: 0.942097
+      inSlope: 1.9225357
+      outSlope: 1.9225357
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -566,6 +566,39 @@ MonoBehaviour:
     m_RotationOrder: 4
   brightestBloom: 50
   normalBloom: 1.5
+  bloomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.17745109
+      outSlope: 0.17745109
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.88568836
+      value: 0.15716636
+      inSlope: 0.53618574
+      outSlope: 0.53618574
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07102465
+      outWeight: 0.24764372
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 7.373122
+      outSlope: 7.373122
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1047818945
 PrefabInstance:
   m_ObjectHideFlags: 0

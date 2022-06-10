@@ -56,14 +56,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _NoiseScale: 19.8
+    - _AlphaSlider: -1
+    - _NoiseScale: 17.97
     - _QueueControl: 0
     - _QueueOffset: 0
     - _RadialScale: 1.2
     - _TimeOffset: 4.87
     - _TwirlOffset: 6.32
-    - _TwirlStrength: 13
-    - _WarpSpeed: 1.5
+    - _TwirlStrength: 15
+    - _WarpSpeed: 0.4
     - _a: -1.84
     - _offset: -0.25
     - _tile: 0.98
