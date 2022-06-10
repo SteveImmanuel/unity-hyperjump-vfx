@@ -32,6 +32,7 @@ public class HyperjumpController : MonoBehaviour
     [Header("Postprocessing Settings")]
     public float brightestBloom = 60f;
     public float normalBloom = 1.5f;
+    public AnimationCurve bloomCurve;
 
     private bool inTunnel;
     private bool isTransitioning;
@@ -96,13 +97,11 @@ public class HyperjumpController : MonoBehaviour
         while (elapsed < transitionDuration)
         {
             float frac = elapsed / transitionDuration;
-            float tBeam = beamCurve.Evaluate(frac);
-            float tTunnel = tunnelCurve.Evaluate(frac);
 
-            hyperjump.SetFloat("LinearScale", Mathf.Lerp(idleScale, maxScale, tBeam));
-            bloom.intensity.value = Mathf.Lerp(normalBloom, brightestBloom, tBeam);
-            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(idleRadialScale, transitionRadialScale, tTunnel));
-            tunnelRenderer.material.SetFloat("_AlphaSlider", Mathf.Lerp(alphaMin, alphaMax, tTunnel));
+            hyperjump.SetFloat("LinearScale", Mathf.Lerp(idleScale, maxScale, beamCurve.Evaluate(frac)));
+            bloom.intensity.value = Mathf.Lerp(normalBloom, brightestBloom, bloomCurve.Evaluate(frac));
+            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(idleRadialScale, transitionRadialScale, tunnelCurve.Evaluate(frac)));
+            tunnelRenderer.material.SetFloat("_AlphaSlider", Mathf.Lerp(alphaMin, alphaMax, tunnelCurve.Evaluate(frac)));
 
             elapsed += Time.deltaTime;
             yield return null;
@@ -123,11 +122,9 @@ public class HyperjumpController : MonoBehaviour
         while (elapsed < transitionDuration)
         {
             float frac = elapsed / transitionDuration;
-            float tBeam = 1 - beamCurve.Evaluate(1 - frac);
-            float tTunnel = 1 - tunnelCurve.Evaluate(1 - frac);
 
-            bloom.intensity.value = Mathf.Lerp(brightestBloom, normalBloom, tBeam);
-            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(transitionRadialScale, idleRadialScale, tTunnel));
+            bloom.intensity.value = Mathf.Lerp(brightestBloom, normalBloom, 1 - bloomCurve.Evaluate(1 - frac));
+            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(transitionRadialScale, idleRadialScale, 1 - tunnelCurve.Evaluate(1 - frac)));
 
             elapsed += Time.deltaTime;
             yield return null;
@@ -146,11 +143,9 @@ public class HyperjumpController : MonoBehaviour
         while (elapsed < transitionDuration)
         {
             float frac = elapsed / transitionDuration;
-            float tBeam = beamCurve.Evaluate(frac);
-            float tTunnel = tunnelCurve.Evaluate(frac);
 
-            bloom.intensity.value = Mathf.Lerp(normalBloom, brightestBloom, tBeam);
-            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(idleRadialScale, transitionRadialScale, tTunnel));
+            bloom.intensity.value = Mathf.Lerp(normalBloom, brightestBloom, bloomCurve.Evaluate(frac));
+            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(idleRadialScale, transitionRadialScale, tunnelCurve.Evaluate(frac)));
 
             elapsed += Time.deltaTime;
             yield return null;
@@ -169,13 +164,11 @@ public class HyperjumpController : MonoBehaviour
         while (elapsed < transitionDuration)
         {
             float frac = elapsed / transitionDuration;
-            float tBeam = 1 - beamCurve.Evaluate(1 - frac);
-            float tTunnel = 1 - tunnelCurve.Evaluate(1 - frac);
 
-            hyperjump.SetFloat("LinearScale", Mathf.Lerp(-maxScale, idleScale, tBeam));
-            bloom.intensity.value = Mathf.Lerp(brightestBloom, normalBloom, tBeam);
-            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(transitionRadialScale, idleRadialScale, tTunnel));
-            tunnelRenderer.material.SetFloat("_AlphaSlider", Mathf.Lerp(alphaMax, alphaMin, tTunnel));
+            hyperjump.SetFloat("LinearScale", Mathf.Lerp(-maxScale, idleScale, 1 - beamCurve.Evaluate(1 - frac)));
+            bloom.intensity.value = Mathf.Lerp(brightestBloom, normalBloom, 1 - bloomCurve.Evaluate(1 - frac));
+            tunnelRenderer.material.SetFloat("_RadialScale", Mathf.Lerp(transitionRadialScale, idleRadialScale, 1 - tunnelCurve.Evaluate(1 - frac)));
+            tunnelRenderer.material.SetFloat("_AlphaSlider", Mathf.Lerp(alphaMax, alphaMin, 1 - tunnelCurve.Evaluate(1 - frac)));
 
             elapsed += Time.deltaTime;
             yield return null;
